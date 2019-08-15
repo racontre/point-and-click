@@ -58,7 +58,7 @@ function ChangeGameState(staet, unload, param)
 	
 	if (gameState.state == GAMESTATE_MAINMENU and GameState[gameState.state].loaded == true) then
 		log ('Main Menu gamestate reached' .. tostring(gameState.room) ..' \n')
-		gameStateInit()
+	
 		
 	end --reset all 
 end

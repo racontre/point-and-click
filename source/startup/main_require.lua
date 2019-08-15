@@ -26,6 +26,6 @@ function getGlobals()
   require("source/maps/title")
 
   require("source/ui/ui")
-
+  SharedResources.mainButtons = ui.ButtonImages('img/default.png','img/over.png','img/click.png')
   require ("source/objects/key")
 end

@@ -21,8 +21,8 @@ function game.changeRoom(param)
 end
 function game.load(param)
 	game.loaded = true
-	if (param == GAME_NEWGAME) then
-		--intro.load()				--Does not change anything
+	if (param == GAME_NEWGAME) then		
+		intro.load()				
 		game.changeRoom(ROOM_INTRO)
 	end
 	adachi.load()
