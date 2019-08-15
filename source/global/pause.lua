@@ -11,6 +11,8 @@ function pause.receive(_type, msg)
 			ChangeGameState(GAMESTATE_GAME, true, GAME_NEWGAME)
 		elseif (msg == 10) then
 			ChangeGameState(GAMESTATE_MAINMENU, true)
+			gameStateInit()
+			gameState.room = ROOM_INTRO
 		end
 	end
 end

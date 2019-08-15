@@ -13,11 +13,11 @@ function love.mousepressed( x, y, button, istouch, presses )
 	end
 end
 function love.load()
-
 	require("source/startup/startup")
+	
   	startup()
 		log("\n\nInit\n")
-	SharedResources.mainButtons = ui.ButtonImages('img/default.png','img/over.png','img/click.png')
+	
 	gameStateInit()
 	gameState.state = GAMESTATE_NULL
 	ChangeGameState(GAMESTATE_MAINMENU)

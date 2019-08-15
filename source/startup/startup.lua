@@ -27,8 +27,9 @@ function startup()
 
   -- Requires all global source files
   require("source/startup/main_require")
-  getGlobals()
 
+  getGlobals()
+  title.load()
   -- Sets first map of the game
   --changeToMap("MainMenu")
 
