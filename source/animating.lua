@@ -5,18 +5,19 @@ adachi = {}
 
   
 function adachi.load()
-  image = love.graphics.newImage('img/adachi.png')
-  g = anim8.newGrid(32, 32, image:getWidth(), image:getHeight())
-animation = anim8.newAnimation(g('1-8',1), 0.1)
+  image = love.graphics.newImage('img/spritesheetP.png')
+  g = anim8.newGrid(99, 202, image:getWidth(), image:getHeight())
+animation = anim8.newAnimation(g('1-1',1), 0.2)
 adachi.y = 350
 adachi.x = 250
 adachi.vel = 100
 adachi.hitbox = HC.circle(40,40,20)
 adachi.animations = {
- up =  anim8.newAnimation(g('5-8',3), 0.1),	
- down = anim8.newAnimation(g('1-4',3),0.1),
- left = anim8.newAnimation(g('15-18',3),0.1),
- right = anim8.newAnimation(g('18-20',4),0.1)
+ idle = anim8.newAnimation(g('1-1',1), 0.2),
+ up =  anim8.newAnimation(g('1-3',1), 0.2),	
+ down = anim8.newAnimation(g('1-3',1),0.2),
+ left = anim8.newAnimation(g('1-3',1),0.2),
+ right = anim8.newAnimation(g('1-3',1),0.2)
 }
 local keyDown 
 adachi.animation = animation
@@ -75,7 +76,7 @@ adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
 			adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
 		 end
 		end
-  		adachi.animation = adachi.animations.up;
+
 end
   
 
@@ -91,12 +92,12 @@ adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
 		 end
 		end
 	        adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
-  		adachi.animation = adachi.animations.down;
+
  
   end
   if love.keyboard.isDown("a") then 
 	 gameState.player.x  = gameState.player.x - 100 * dt
-   	 adachi.animation = adachi.animations.left;
+
 adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
  	 for shape, delta in pairs(HC.collisions(adachi.hitbox)) do
 	  if shape:collidesWith(adachi.hitbox) then	
@@ -116,7 +117,16 @@ adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
 		adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
 	 end
 	end
-   adachi.animation = adachi.animations.right;
- end
 
+ end
+	if wDown == true then
+   		adachi.animation = adachi.animations.up;
+	elseif sDown == true then
+  		adachi.animation = adachi.animations.down;
+	elseif aDown == true then
+		adachi.animation = adachi.animations.left;
+	elseif dDown == true then
+		adachi.animation = adachi.animations.right;
+	else adachi.animation = adachi.animations.idle;
+end
 end

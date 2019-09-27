@@ -15,13 +15,14 @@ function introreceivepoly(_type, msg) --object monitoring function
 	log("Received polygon message type " .. tostring(_type) .. " message " .. tostring(msg) .. "\n")
 	if (_type == MESSAGE_CLICK) then
 		if (msg == 11 or msg == 12 or msg == 13) then
+			
 			intro.objects:DestroyObject(msg)
 			dialogue.set(5, keyObject.comment)
 		end
 	end
 end
 function intro.load()
-	intro.bg = love.graphics.newImage('img/oz_screen6.jpg')
+	intro.bg = love.graphics.newImage('img/bgforest.png')
 	intro.rect = HC.rectangle(200, 400, 400, 20)
 	intro.couch = HC.rectangle(150, 500, 300, 50)
 	
