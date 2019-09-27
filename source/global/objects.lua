@@ -185,6 +185,9 @@ function objects:subscribe(func)
 	self.subscribers[#self.subscribers + 1] = func
 end
 
+function objects:resetsubscribers()
+end
+
 function objects:draw()
 	for _, obj in ipairs(self) do
 		love.graphics.setColor(1,1,1)
