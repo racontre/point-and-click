@@ -7,6 +7,7 @@ local Room =
 {
 	[ROOM_INTRO] = intro
 }
+
 function game.changeRoom(param)
 	param = param or nil
 	if (gameState.room ~= ROOM_NULL) then
@@ -21,14 +22,21 @@ function game.changeRoom(param)
 end
 function game.load(param)
 	game.loaded = true
-	log ('\ngame.lua game.load reached\n')
+	if (param == nil) then
+		log ('param is nil \n')
+	else 
+		log ('param is ' .. param .. '\n')
+	end
 	if (param == GAME_NEWGAME) then	
-		intro.load()	
-		intro.init()
+		adachi.load()
+		log ('\nintro ' .. type(intro) .. '\n')
+		log ('gameState.state ' .. gameState.state .. '\n')
+		intro.load()
+		intro.set()	
 		log('\ngame.lua param=GAME_NEWGAME reached \n')
 		game.changeRoom(ROOM_INTRO)
 	end
-	adachi.load()
+	--adachi.load()
 	game.ui = ui:create()
 	game.ui:CreateButton(100, 100, 50, 50, 22, "adachi kill", SharedResources.mainButtons)
 end

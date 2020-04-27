@@ -3,55 +3,71 @@
 Init
 Unloading gamestate 1 unload = true
 Main Menu gamestate reached0 
+param is nil 
 type of message received 1
 message: 11
 type of message received 0
 message: 11
 Unloading gamestate 2 unload = true
+param is 1
+adachi loaded
+intro table
+gameState.state 2
+Creating object 11
 
-game.lua game.load reached
-Creating object 11
-Added resource img/key.png
- 1 0.9921568627451 0.98823529411765 0.9843137254902 0.97647058823529 0.97254901960784 0.96862745098039 0.96470588235294 0.95686274509804 0.95294117647059 0.94901960784314 0.94117647058824 0.93725490196078 0.93333333333333 0.92941176470588 0.92156862745098 0.91764705882353 0.91372549019608
 Creating object 12
-Added resource img/key.png from existing object id 11
 Creating object 13
-Added resource img/key.png
- 1 0.9921568627451 0.98823529411765 0.9843137254902 0.97647058823529 0.97254901960784 0.96862745098039 0.96470588235294 0.95686274509804 0.95294117647059 0.94901960784314 0.94117647058824 0.93725490196078 0.93333333333333 0.92941176470588 0.92156862745098 0.91764705882353 0.91372549019608
-Creating object 11
-Added resource img/key.png
- 1 0.9921568627451 0.98823529411765 0.9843137254902 0.97647058823529 0.97254901960784 0.96862745098039 0.96470588235294 0.95686274509804 0.95294117647059 0.94901960784314 0.94117647058824 0.93725490196078 0.93333333333333 0.92941176470588 0.92156862745098 0.91764705882353 0.91372549019608
-Creating object 12
-Added resource img/key.png from existing object id 11
-Creating object 13
-Added resource img/key.png
- 1 0.9921568627451 0.98823529411765 0.9843137254902 0.97647058823529 0.97254901960784 0.96862745098039 0.96470588235294 0.95686274509804 0.95294117647059 0.94901960784314 0.94117647058824 0.93725490196078 0.93333333333333 0.92941176470588 0.92156862745098 0.91764705882353 0.91372549019608
+
+
+is this thing even on50
+
 
 game.lua param=GAME_NEWGAME reached 
 Creating object 11
-Added resource img/key.png
- 1 0.9921568627451 0.98823529411765 0.9843137254902 0.97647058823529 0.97254901960784 0.96862745098039 0.96470588235294 0.95686274509804 0.95294117647059 0.94901960784314 0.94117647058824 0.93725490196078 0.93333333333333 0.92941176470588 0.92156862745098 0.91764705882353 0.91372549019608
+
 Creating object 12
-Added resource img/key.png from existing object id 11
 Creating object 13
-Added resource img/key.png
- 1 0.9921568627451 0.98823529411765 0.9843137254902 0.97647058823529 0.97254901960784 0.96862745098039 0.96470588235294 0.95686274509804 0.95294117647059 0.94901960784314 0.94117647058824 0.93725490196078 0.93333333333333 0.92941176470588 0.92156862745098 0.91764705882353 0.91372549019608
+
 Unloading room 1
 Received polygon message type 0 message 11
 Object 11 destroyed
 lole mouse within shape 
-Memory used: 674.6123046875 KB
-Memory used: 899.359375 KB
+Received polygon message type 0 message 13
+Object 13 destroyed
+lole mouse within shape 
+Received polygon message type 0 message 12
+Object 12 destroyed
+lole mouse within shape 
+Unloading gamestate 3 unload = false
+game.load called 
+param is nil 
+Unloading gamestate 1 unload = true
+game.load called 
+Main Menu gamestate reached1 
+param is nil 
+type of message received 1
+message: 11
+type of message received 0
+message: 11
+Unloading gamestate 2 unload = true
+param is 1
+adachi loaded
+intro table
+gameState.state 2
+Creating object 11
 
-Memory used: 515.8330078125 KB
-Memory used: 728.419921875 KB
-Memory used: 922.9345703125 KB
-Memory used: 520.2919921875 KB
-Memory used: 748.001953125 KB
-Memory used: 962.1513671875 KB
-Memory used: 555.2568359375 KB
-Memory used: 781.9921875 KB
-Memory used: 1008.5771484375 KB
-Memory used: 581.8740234375 KB
-Memory used: 779.427734375 KB
-Memory used: 998.0888671875 KB
+Creating object 12
+Creating object 13
+
+
+is this thing even on50
+
+
+game.lua param=GAME_NEWGAME reached 
+intro is nil!Creating object 11
+
+Creating object 12
+Creating object 13
+
+Unloading room 1
+Memory used: 546.6806640625 KB

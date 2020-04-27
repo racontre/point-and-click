@@ -26,11 +26,11 @@ function objects:AddObjectResources(index, path, ...)
 			local imgindex = #(self[index].resources.imgs) + 1
 			self[index].resources.paths[pathindex] = self[resindex].resources.paths[pathindex]
 			self[index].resources.imgs[imgindex] = self[resindex].resources.imgs[imgindex]
-			log("Added resource " .. self[index].resources.paths[pathindex] .. " from existing object id " .. tostring(path) .. "\n")
+			--log("Added resource " .. self[index].resources.paths[pathindex] .. " from existing object id " .. tostring(path) .. "\n")
 		else
 			self[index].resources.paths[#(self[index].resources.paths) + 1] = path
 			self[index].resources.imgs[#(self[index].resources.imgs) + 1] = love.graphics.newImage(path)
-			log("Added resource " .. path .. "\n")
+			--log("Added resource " .. path .. "\n")
 		end
 		return self:AddObjectResources(index, ...)
 	else
@@ -69,7 +69,7 @@ function objects.CollisionImage(path)
 	imgdata = nil
 	--log(tostring(#green) .. " vertices from " .. path)
 	for i=1,#green,1 do
-		log(" " .. tostring(green[i]))
+		--log(" " .. tostring(green[i]))
 	end
 	log("\n")
 	return unpack(greenvertices)
