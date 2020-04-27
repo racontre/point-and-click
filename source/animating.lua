@@ -5,13 +5,14 @@ adachi = {}
 
   
 function adachi.load()
+log('adachi loaded')
   image = love.graphics.newImage('img/spritesheetP.png')
   g = anim8.newGrid(99, 203, image:getWidth(), image:getHeight())
 animation = anim8.newAnimation(g('1-1',1), 0.2)
 adachi.y = 500	--what 
 adachi.x = 500
 adachi.vel = 100
-adachi.hitbox = HC.circle(40,40,20)
+adachi.hitbox = HC.circle(10,10,20)
 adachi.animations = {
  idle = anim8.newAnimation(g('1-1',1), 0.2),
  up =  anim8.newAnimation(g('1-3',1), 0.2),	

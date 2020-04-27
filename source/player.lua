@@ -6,8 +6,8 @@ local player = {}
 --the adachi square
 player.position_x = 30
 
-player.position_y = 550
-player.speed_x =550
+player.position_y = 50
+player.speed_x =50
 
 player.width = 50
 player.height = 50

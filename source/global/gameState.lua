@@ -27,11 +27,11 @@ GameState =
   gameState.state = 1
 
   -- Player information
-  gameState.player.x = 50
-  gameState.player.y = 50
+  gameState.player.x = 0
+  gameState.player.y = 0
   gameState.player.maxHealth = 20
   gameState.player.weapon = 0
-
+  
   -- Which pickups have been obtained
   gameState.pickups.blaster = false
   gameState.pickups.rocket = false
@@ -53,12 +53,11 @@ function ChangeGameState(staet, unload, param)
 	end
 	gameState.state = staet
 	if (gameState.state ~= GAMESTATE_NULL and GameState[gameState.state].loaded == false) then
-		GameState[gameState.state].load(param)
+		GameState[gameState.state].load(param)		
 	end
 	
 	if (gameState.state == GAMESTATE_MAINMENU and GameState[gameState.state].loaded == true) then
-		log ('Main Menu gamestate reached' .. tostring(gameState.room) ..' \n')
-		
-		
+		log ('Main Menu gamestate reached' .. tostring(gameState.room) ..' \n')	
 	end --reset all 
+	game.load(param)
 end
