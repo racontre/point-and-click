@@ -6,10 +6,10 @@ adachi = {}
   
 function adachi.load()
   image = love.graphics.newImage('img/spritesheetP.png')
-  g = anim8.newGrid(99, 202, image:getWidth(), image:getHeight())
+  g = anim8.newGrid(99, 203, image:getWidth(), image:getHeight())
 animation = anim8.newAnimation(g('1-1',1), 0.2)
-adachi.y = 350
-adachi.x = 250
+adachi.y = 500	--what 
+adachi.x = 500
 adachi.vel = 100
 adachi.hitbox = HC.circle(40,40,20)
 adachi.animations = {
@@ -17,7 +17,8 @@ adachi.animations = {
  up =  anim8.newAnimation(g('1-3',1), 0.2),	
  down = anim8.newAnimation(g('1-3',1),0.2),
  left = anim8.newAnimation(g('1-3',1),0.2),
- right = anim8.newAnimation(g('1-3',1),0.2)
+ right = anim8.newAnimation(g('1-3',1),0.2),
+ talk = anim8.newAnimation(g('1-3',2),0.2)
 }
 local keyDown 
 adachi.animation = animation
@@ -127,6 +128,8 @@ adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
 		adachi.animation = adachi.animations.left;
 	elseif dDown == true then
 		adachi.animation = adachi.animations.right;
+	elseif dialogue.show == true then
+		adachi.animation = adachi.animations.talk;
 	else adachi.animation = adachi.animations.idle;
 end
 end

@@ -8,7 +8,17 @@ stuff = 'dgwdgsdgsgs'
 
 intro.loaded = false
 function intro.init()
-	gameState.player.x = 350
+  gameState.player.x = 50
+  gameState.player.y = 200
+  
+  		intro.objects:CreateObject(11, 'img/keycol.png', 'img/key.png')
+		intro.objects:MoveObject(11, 300, 100, 5)
+		
+		intro.objects:CreateObject(12, 11, 11)
+		intro.objects:MoveObject(12, 475, 475, 1)
+		
+		intro.objects:CreateObject(13, keyObject.colImg, keyObject.image)
+		intro.objects:MoveObject(13, 350, 450, 3)
 end
 
 function introreceivepoly(_type, msg) --object monitoring function
@@ -25,7 +35,8 @@ function intro.load()
 	intro.bg = love.graphics.newImage('img/bgforest.png')
 	intro.rect = HC.rectangle(200, 400, 400, 20)
 	intro.couch = HC.rectangle(150, 500, 300, 50)
-	
+	 gameState.player.x = 50
+	gameState.player.y = 200
 	intro.objects = objects:create()
 	intro.objects:subscribe(introreceivepoly) --esli s tochkoi to intro.receivepoly budet nil v object subscribers
 									

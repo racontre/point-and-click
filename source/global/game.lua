@@ -21,8 +21,11 @@ function game.changeRoom(param)
 end
 function game.load(param)
 	game.loaded = true
+	log ('\ngame.lua game.load reached\n')
 	if (param == GAME_NEWGAME) then	
-		intro.load()		
+		intro.load()	
+		intro.init()
+		log('\ngame.lua param=GAME_NEWGAME reached \n')
 		game.changeRoom(ROOM_INTRO)
 	end
 	adachi.load()

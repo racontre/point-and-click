@@ -134,11 +134,11 @@ function ui:update(dt)
 end
 
 function ui:draw()
-	love.graphics.setColor(1,1,1)
+	--love.graphics.setColor(1,1,1)
 	for _,b in ipairs(self.buttons) do
 		love.graphics.draw(b.resource[b.current], b.x, b.y, 0, b.scalex, b.scaley)
-		love.graphics.setColor(0,0,0)
+		--love.graphics.setColor(0,0,0)
 		love.graphics.printf(b.text, b.x, b.y + b.h/2, b.w, "center")
-		love.graphics.setColor(1,1,1)
+		--love.graphics.setColor(1,1,1)
 	end
 end
