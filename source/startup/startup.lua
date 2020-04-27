@@ -8,7 +8,11 @@ function startup()
   -- Window icon
   local icon = love.image.newImageData('img/oldHero.png')
   love.window.setIcon(icon)
-
+  font = love.graphics.newImageFont("img/Resource-Imagefont.png",
+    " abcdefghijklmnopqrstuvwxyz" ..
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ0" ..
+    "123456789.,!?-+/():;%&`'*#=[]\"")
+  love.graphics.setFont(font)
   -- Game resolution
   --gameWidth = 1152
   --gameHeight = 768

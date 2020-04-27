@@ -67,7 +67,7 @@ function objects.CollisionImage(path)
 		end
 	end
 	imgdata = nil
-	log(tostring(#green) .. " vertices from " .. path)
+	--log(tostring(#green) .. " vertices from " .. path)
 	for i=1,#green,1 do
 		log(" " .. tostring(green[i]))
 	end
@@ -169,9 +169,9 @@ function objects:CreateObject(id, colpath, ...) -- first collision image path th
 	self[index].z = 0
 	local resnum = self:AddObjectResources(index, ...)
 	assert(resnum, "No resources for object " .. tostring(index))
-	log(tostring(resnum) .. " resources loaded for object " .. tostring(id) .. "\n")
+	--log(tostring(resnum) .. " resources loaded for object " .. tostring(id) .. "\n")
 	if (type(colpath) == 'number') then
-		log("Loading polygon data from existing object id " .. tostring(colpath) .. "\n")
+		--log("Loading polygon data from existing object id " .. tostring(colpath) .. "\n")
 		local resindex = self:IndexByID(colpath)
 		self[index].polygon = self[resindex].polygon:clone()
 		self[index].polygon:move(0 - self[resindex].x, 0 - self[resindex].y)

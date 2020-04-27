@@ -3,7 +3,7 @@ local player = {}
   local spritesheet = love.graphics.newImage('img/adachi.png');
 
 local player = {}
-
+--the adachi square
 player.position_x = 30
 
 player.position_y = 550

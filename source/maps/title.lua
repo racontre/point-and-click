@@ -50,13 +50,13 @@ function title.update(dt)
 end
 
 function title.draw()
-	love.graphics.setColor(1, 1, 1)
+	--love.graphics.setColor(1, 1, 1)
 		love.graphics.draw(maintitle)
-	love.graphics.setColor(0, 0, 0.1)
+	--love.graphics.setColor(0, 0, 0.1)
 		love.graphics.printf("CAVERN", 0, 140 , 400, "center")
-	love.graphics.setColor(1,0,0)
+	--love.graphics.setColor(1,0,0)
 		love.graphics.printf(message, 160, 430, 400, "left")
 	title.ui:draw()
-	love.graphics.setColor(0,0,0)
+	--love.graphics.setColor(0,0,0)
 	--love.graphics.polygon('fill', title.objects[1].polygon:unpack())
 end
