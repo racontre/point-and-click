@@ -6,6 +6,7 @@ intro = {}
 
 intro.loaded = false
 function intro.set()
+	
 	gameState.player.x = 50
 	gameState.player.у = 250
 	
@@ -22,6 +23,7 @@ function introreceivepoly(_type, msg) --object monitoring function
 	end
 end
 function intro.load()
+	dialogue.show = false
 	adachi.animation = adachi.animations.idle;
 	bg = love.graphics.newImage('img/bgforest.png')
 	rect = HC.rectangle(200, 400, 400, 20)
@@ -42,7 +44,7 @@ function intro.load()
 
 end
 function intro.unload()			--function is unused --apparently not
-	intro = nil				
+	--intro = nil				
 	log('intro is nil!')
 end
 function intro.draw()
