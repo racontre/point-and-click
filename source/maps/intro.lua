@@ -1,7 +1,8 @@
 require 'source.global.objects'
 require 'source.text.dialogue'
 require 'source.animating'
-  require ("source/objects/key")
+require ("source/objects/key")
+require ("source/objects/intro/fence")
 intro = {}
 
 intro.loaded = false
@@ -15,11 +16,14 @@ end
 function introreceivepoly(_type, msg) --object monitoring function
 	log("Received polygon message type " .. tostring(_type) .. " message " .. tostring(msg) .. "\n")
 	if (_type == MESSAGE_CLICK) then
-		if (msg == 11 or msg == 12 or msg == 13) then
-			
+		if (msg == 11 or msg == 12 or msg == 13) then		
 			introobjects:DestroyObject(msg)
 			dialogue.set(5, keyObject.comment)
 		end
+		if (msg == 14) then
+			dialogue.set(5, fenceObject.comment)
+		end
+		else dialogue.set(2, 'Nothing unusual.')
 	end
 end
 function intro.load()
@@ -32,7 +36,8 @@ function intro.load()
 	gameState.player.y = 200
 	introobjects = objects:create()
 	introobjects:subscribe(introreceivepoly) --esli s tochkoi to intro.receivepoly budet nil v object subscribers
-									
+		introobjects:CreateObject(14, fenceObject.colImg, fenceObject.image)
+		
 		introobjects:CreateObject(11, 'img/keycol.png', 'img/key.png')
 		introobjects:MoveObject(11, 300, 100, 5)
 		
@@ -41,6 +46,9 @@ function intro.load()
 		
 		introobjects:CreateObject(13, keyObject.colImg, keyObject.image)
 		introobjects:MoveObject(13, 350, 450, 3)
+		
+		
+		
 
 end
 function intro.unload()			--function is unused --apparently not

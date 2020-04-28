@@ -1,0 +1,44 @@
+
+
+Init
+Unloading gamestate 1 unload = true
+Main Menu gamestate reached0 
+param is nil 
+type of message received 1
+message: 11
+type of message received 1
+message: 11
+type of message received 0
+message: 11
+Unloading gamestate 2 unload = true
+param is 1
+adachi loaded
+intro table
+gameState.state 2
+Creating object 14
+
+Creating object 11
+
+Creating object 12
+Creating object 13
+
+
+game.lua param=GAME_NEWGAME reached 
+Creating object 14
+
+Creating object 11
+
+Creating object 12
+Creating object 13
+
+Unloading room 1
+Received polygon message type 0 message 11
+Object 11 destroyed
+lole mouse within shape 
+Received polygon message type 0 message 14
+lole mouse within shape 
+Memory used: 636.625 KB
+Received polygon message type 0 message 13
+Object 13 destroyed
+lole mouse within shape 
+Memory used: 855.8427734375 KB
