@@ -29,8 +29,9 @@ function game.load(param)
 	end
 	if (param == GAME_NEWGAME) then	
 		adachi.load()
-		log ('\nintro ' .. type(intro) .. '\n')
+		--log ('\nintro ' .. type(intro) .. '\n')
 		log ('gameState.state ' .. gameState.state .. '\n')
+		intro.unload()
 		intro.load()
 		intro.set()	
 		log('\ngame.lua param=GAME_NEWGAME reached \n')

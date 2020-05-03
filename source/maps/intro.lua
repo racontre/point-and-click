@@ -16,17 +16,23 @@ end
 function introreceivepoly(_type, msg) --object monitoring function
 	log("Received polygon message type " .. tostring(_type) .. " message " .. tostring(msg) .. "\n")
 	if (_type == MESSAGE_CLICK) then
-		if (msg == 11 or msg == 12 or msg == 13) then		
+	
+		if (msg == 14 or msg == 12 or msg == 13) then		
 			introobjects:DestroyObject(msg)
 			dialogue.set(5, keyObject.comment)
-		end
-		if (msg == 14) then
+		log('msg type ' .. msg .. '\n')
+		elseif (msg == 11) then
 			dialogue.set(5, fenceObject.comment)
 		end
 		else dialogue.set(2, 'Nothing unusual.')
 	end
 end
+function intro.unload()
+	introobjects:DestroyObject(11)
+	introobjects:DestroyObject(14)
+end
 function intro.load()
+
 	dialogue.show = false
 	adachi.animation = adachi.animations.idle;
 	bg = love.graphics.newImage('img/bgforest.png')
@@ -36,16 +42,16 @@ function intro.load()
 	gameState.player.y = 200
 	introobjects = objects:create()
 	introobjects:subscribe(introreceivepoly) --esli s tochkoi to intro.receivepoly budet nil v object subscribers
-		introobjects:CreateObject(14, fenceObject.colImg, fenceObject.image)
 		
-		introobjects:CreateObject(11, 'img/keycol.png', 'img/key.png')
-		introobjects:MoveObject(11, 300, 100, 5)
 		
-		introobjects:CreateObject(12, 11, 11)
-		introobjects:MoveObject(12, 475, 475, 1)
+		introobjects:CreateObject(14, 'img/keycol.png', 'img/key.png')
+		introobjects:MoveObject(14, 300, 50, 5)
+		introobjects:CreateObject(11, fenceObject.colImg, fenceObject.image)
+		--introobjects:CreateObject(12, 11, 11)
+		--introobjects:MoveObject(12, 475, 475, 1)
 		
-		introobjects:CreateObject(13, keyObject.colImg, keyObject.image)
-		introobjects:MoveObject(13, 350, 450, 3)
+		--introobjects:CreateObject(13, keyObject.colImg, keyObject.image)
+		--introobjects:MoveObject(13, 350, 450, 3)
 		
 		
 		

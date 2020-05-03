@@ -5,12 +5,13 @@ require 'source.global.message'
 anim8 = require 'source.lib.anim8.anim8'
 
 objects = {}
-objects.__index = objects
 
 --internal functions
 function objects:IndexByID(id)
-	for i=1,#self,1 do
+	for i=#self,1,-1 do
+	log ('object id' .. i .. '\n')
 		if (self[i].id == id) then
+			--log ('object id' .. i .. '\n')
 			return i
 		end
 	end
@@ -83,13 +84,15 @@ end
 
 function objects:mousepressed(x, y, button, istouch, presses)
 	local x, y = love.mouse.getPosition()
-	for i=#self,1,-1 do
+	for i=1,#self,1 do
+		--log("OBJECT ID ") log(self[i].id) log('\n')
 		if (PointWithinShape(self[i].polygon.vertices, x, y)) then
+			--log("lole mouse within shape \n")
 			self:DispatchMessage(MESSAGE_CLICK, self[i].id)
-			log("lole mouse within shape \n")
 			return
 		end
 	end
+	log('\n')
 end
 
 --external functions
@@ -148,16 +151,17 @@ end
 function objects:DestroyObject(id)
 	local index = self:IndexByID(id)
 	if (not index) then
-		log("error Cant destroy object\n")
+		log("error Cant destroy object id \n")
+		log(id)
 		return
 	end
-	TableDelete(self, index)
+	table.remove(self, index)
 	log("Object " .. tostring(id) .. " destroyed\n")
 end
 
 function objects:CreateObject(id, colpath, ...) -- first collision image path then other paths
 	local index = #self + 1
-	log("Creating object " .. tostring(id) .. "\n")
+	log("Creating object " .. tostring(id) .. ', ' .. tostring(colpath) .. "\n")
 	self[index] = {}
 	self[index].id = id
 	self[index].state = 1
@@ -208,9 +212,16 @@ function objects:destroy()
 end
 
 function objects:create()
-	local tbl = {}
-	setmetatable(tbl, objects)
+	tbl = tbl or {}
+	setmetatable(tbl, self)
+	self.__index = self
 	tbl.subscribers = {}
 	SubscribeToClick(tbl)
 	return tbl
 end 
+
+function removeMetatable()
+	for i=#self,1,-1 do
+		table.remove(self, i)
+	end
+end

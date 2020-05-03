@@ -5,12 +5,13 @@ adachi = {}
 
   
 function adachi.load()
-log('adachi loaded')
+
+log('adachi loaded\n')
   image = love.graphics.newImage('img/spritesheetP.png')
   g = anim8.newGrid(99, 203, image:getWidth(), image:getHeight())
 animation = anim8.newAnimation(g('1-1',1), 0.2)
-adachi.y = 500	--what 
-adachi.x = 500
+adachi.y = 0	--what 
+adachi.x = 0
 adachi.vel = 100
 adachi.hitbox = HC.circle(10,10,20)
 adachi.animations = {
@@ -71,11 +72,11 @@ dDown = false
 if love.keyboard.isDown("w") then 
 		wDown = true
    		gameState.player.y  = gameState.player.y  - 100 * dt
-adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
+--adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
  		for shape, delta in pairs(HC.collisions(adachi.hitbox)) do
   		 if shape:collidesWith(adachi.hitbox) then	
 			gameState.player.y  = gameState.player.y + 100 * dt
-			adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
+			--adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
 		 end
 		end
 
@@ -85,12 +86,12 @@ end
 if love.keyboard.isDown("s") then
 		sDown = true
 		gameState.player.y  = gameState.player.y + 100 * dt
-adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
+--adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
 		adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
  		for shape, delta in pairs(HC.collisions(adachi.hitbox)) do
    		 if shape:collidesWith(adachi.hitbox) then	
 			gameState.player.y  = gameState.player.y - 100 * dt
-			adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
+			--adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
 		 end
 		end
 	        adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
@@ -100,11 +101,11 @@ adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
   if love.keyboard.isDown("a") then 
 	 gameState.player.x  = gameState.player.x - 100 * dt
 
-adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
+--adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
  	 for shape, delta in pairs(HC.collisions(adachi.hitbox)) do
 	  if shape:collidesWith(adachi.hitbox) then	
 		gameState.player.x  = gameState.player.x + 100 * dt
-		adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
+		--adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
 	 end
 	end
 	aDown = true
@@ -112,10 +113,10 @@ adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
   if love.keyboard.isDown("d") then 
 	dDown = true
    	gameState.player.x  = gameState.player.x + 100 * dt
-adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
+--adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
  	for shape, delta in pairs(HC.collisions(adachi.hitbox)) do
    	 if shape:collidesWith(adachi.hitbox) then	
-		gameState.player.x  = gameState.player.x - 100 * dt
+		--gameState.player.x  = gameState.player.x - 100 * dt
 		adachi.hitbox:moveTo(gameState.player.x+15, gameState.player.y+15)
 	 end
 	end
