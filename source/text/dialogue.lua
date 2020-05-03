@@ -22,7 +22,9 @@ function dialogue.update(dt)
 end
 
 function dialogue.set(pass, text)
-	result = love.timer.getTime() + pass
-	dialogue.show = true
-	current = text
+	if dialogue.show == false then
+		result = love.timer.getTime() + pass
+		dialogue.show = true
+		current = text
+	end
 end
