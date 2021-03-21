@@ -10,8 +10,6 @@ function pause.receive(_type, msg)
 		if (msg == 9) then
 			ChangeGameState(GAMESTATE_GAME, true, GAME_NEWGAME)
 		elseif (msg == 10) then
-			ChangeGameState(GAMESTATE_MAINMENU, true)
-			--gameStateInit() why is this here
 			gameState.room = ROOM_INTRO
 		end
 	end
@@ -31,15 +29,18 @@ function pause.load()
 	pause.blur.scalex = WINDOW_WIDTH / pause.blur.image:getWidth()
 	pause.blur.scaley = WINDOW_HEIGHT / pause.blur.image:getHeight()
 end
+
 function pause.unload()
 	pause.loaded = false
 	pause.ui:destroy()
 	pause.blur = nil
 	collectgarbage('collect')
 end
+
 function pause.update(dt)
 	ui.update(pause.ui, dt)
 end
+
 function pause.draw()
 	game.draw()
 	love.graphics.draw(pause.blur.image, 0, 0, 0, pause.blur.scalex, pause.blur.scaley)

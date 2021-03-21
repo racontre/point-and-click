@@ -1,7 +1,7 @@
 local player = {}
   local animation
   local spritesheet = love.graphics.newImage('img/adachi.png');
-
+--this is the collision box!!!!!!!!!!!!!!!!!!!!!!!!
 local player = {}
 --the adachi square
 player.position_x = 30

@@ -5,6 +5,7 @@ function TableDelete(tbl, i)
 	end
 	tbl[size] = nil
 end
+
 function CleanNils(l)
 	local tbl = {}
 	for _,v in pairs(l) do

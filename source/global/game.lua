@@ -1,11 +1,15 @@
 require "source.global.gameState"
-require "source.maps.intro"
+require "source.rooms.title"
+require "source.rooms.intro"
+require "source.rooms.street"
 game={}
 game.ui = {}
 game.loaded = false
 local Room = 
-{
-	[ROOM_INTRO] = intro
+{	
+	[ROOM_TITLE] = title,
+	[ROOM_INTRO] = intro,
+	[ROOM_STREET] = street,
 }
 
 function game.changeRoom(param)
@@ -17,34 +21,35 @@ function game.changeRoom(param)
 	gameState.room = param
 	if (gameState.room ~= ROOM_NULL) then
 		Room[gameState.room].load()
-		log("Unloading room " .. tostring(gameState.room) .. "\n")
+		log("\nIn game.changeRoom: Unloading room " .. tostring(gameState.room) .. "\n")
 	end
 end
+
 function game.load(param)
 	game.loaded = true
 	if (param == nil) then
-		log ('param is nil \n')
+		log ('In game.load: param is nil \n')
 	else 
-		log ('param is ' .. param .. '\n')
+		log ('In game.load: param is ' .. param .. '\n')
 	end
 	if (param == GAME_NEWGAME) then	
 		adachi.load()
-		--log ('\nintro ' .. type(intro) .. '\n')
-		log ('gameState.state ' .. gameState.state .. '\n')
+		log ('In game.load: gameState.state ' .. gameState.state .. '\n')
 		intro.unload()
 		intro.load()
 		intro.set()	
-		log('\ngame.lua param=GAME_NEWGAME reached \n')
+		log('In game.load: game.lua param=GAME_NEWGAME reached \n')
 		game.changeRoom(ROOM_INTRO)
 	end
-	--adachi.load()
 	game.ui = ui:create()
 	game.ui:CreateButton(100, 100, 50, 50, 22, "adachi kill", SharedResources.mainButtons)
 end
+
 function game.unload()
 	game.loaded = false
 	adachi.unload()
 end
+
 function game.draw()
 	love.graphics.setColor(1, 1, 1)
 	Room[gameState.room].draw()
@@ -54,6 +59,7 @@ function game.draw()
 	dialogue.draw()
 	return
 end
+
 function game.update(dt)
 	game.ui:update(dt)
 	adachi.update(dt)

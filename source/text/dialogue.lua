@@ -5,9 +5,9 @@ current = " "
 dialogue = {}
 
 function dialogue.draw()			
-if type(current) ~= "string"  then
-    error("must be a string")
-end
+	if type(current) ~= "string"  then
+		error("In dialogue.draw: must be a string")
+	end
 	if dialogue.show then	--probably should do 1 line at a time?	
 	--	love.graphics.setColor(255,255,255,255)
 		love.graphics.print(current, gameState.player.x, gameState.player.y)
