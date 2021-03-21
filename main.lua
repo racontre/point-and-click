@@ -1,5 +1,5 @@
-SharedResources = {}
-ClickSubscribers = {}
+SharedResources = {}			--Button Textures are here or something
+ClickSubscribers = {}			--what is this
 
 local TIME = 5
 local timer = TIME
@@ -7,19 +7,17 @@ local timer = TIME
 function SubscribeToClick(subscriber)
 	ClickSubscribers[#ClickSubscribers + 1] = subscriber
 end
+
 function love.mousepressed( x, y, button, istouch, presses )
 	for _, s in ipairs(ClickSubscribers) do
 		s:mousepressed(x, y, button, istouch, presses)
 	end
 end
+
 function love.load()
 	require("source/startup/startup")
-	
   	startup()
-		log("\n\nInit\n")
-	
 	gameStateInit()
-	gameState.state = GAMESTATE_NULL
 	ChangeGameState(GAMESTATE_MAINMENU)
 	debug.load()
 end
@@ -27,7 +25,6 @@ end
 
 function love.draw()
 	love.graphics.setColor(1, 1, 1)
-	--logfile:write("aaaa")
 	GameState[gameState.state].draw()
 	debug.mouseLocation()
 end

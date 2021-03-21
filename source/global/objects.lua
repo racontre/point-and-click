@@ -9,13 +9,13 @@ objects = {}
 --internal functions
 function objects:IndexByID(id)
 	for i=#self,1,-1 do
-	log ('object id' .. i .. '\n')
+	log ('In objects:IndexByID: object id' .. i .. '\n')
 		if (self[i].id == id) then
 			--log ('object id' .. i .. '\n')
 			return i
 		end
 	end
-	log("error No object with id " .. tostring(id) .. "\n")
+	log("In objects:IndexByID: error No object with id " .. tostring(id) .. "\n")
 	return nil
 end
 
@@ -151,17 +151,16 @@ end
 function objects:DestroyObject(id)
 	local index = self:IndexByID(id)
 	if (not index) then
-		log("error Cant destroy object id \n")
-		log(id)
+		log("In objects:DestroyObject: error Cant destroy object id" .. tostring(id) .. " \n")
 		return
 	end
 	table.remove(self, index)
-	log("Object " .. tostring(id) .. " destroyed\n")
+	log("In objects:DestroyObject: Object " .. tostring(id) .. " destroyed\n")
 end
 
 function objects:CreateObject(id, colpath, ...) -- first collision image path then other paths
 	local index = #self + 1
-	log("Creating object " .. tostring(id) .. ', ' .. tostring(colpath) .. "\n")
+	log("In objects:CreateObject: Creating object " .. tostring(id) .. ', ' .. tostring(colpath))
 	self[index] = {}
 	self[index].id = id
 	self[index].state = 1
@@ -212,7 +211,7 @@ function objects:destroy()
 end
 
 function objects:create()
-	tbl = tbl or {}
+	tbl = {}
 	setmetatable(tbl, self)
 	self.__index = self
 	tbl.subscribers = {}

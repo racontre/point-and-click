@@ -17,15 +17,15 @@ end
 
 function ui.ButtonImages(default, over, click)
 	if not default then 
-		log("error No default image for buttons setup\n")
+		log("In ui.ButtonImages: error No default image for buttons setup\n")
 		return
 	end
 	if not over then
-		log("error No mouse-over image for buttons setup\n")
+		log("In ui.ButtonImages: error No mouse-over image for buttons setup\n")
 		return
 	end
 	if not click then
-		log("error No click image for buttons setup\n")
+		log("In ui.ButtonImages: error No click image for buttons setup\n")
 		return
 	end
 	index = #resources + 1

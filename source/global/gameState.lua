@@ -1,53 +1,39 @@
-require 'source.maps.intro'
+require 'source.rooms.intro'
 gameState = {}
 gameState.player = {}
 gameState.pickups = {}
 
 GAMESTATE_NULL, GAMESTATE_MAINMENU, GAMESTATE_GAME, GAMESTATE_PAUSE, GAMESTATE_CREDITS = 0, 1, 2, 3, 4 --"""""enum"""""
-ROOM_NULL, ROOM_INTRO = 0, 1
+ROOM_NULL, ROOM_TITLE, ROOM_INTRO, ROOM_STREET = 0, 1, 2, 3
 GAME_NEWGAME, GAME_CONTINUE = 1, 2
 
 function gameStateInit()			--reset through this
 
   -- Number of times the game has been saved.
-  -- Used to prevent certain save blocks from spawning
   gameState.saveCount = 0
 
   -- State stores if update functions should occur
-GameState = 
-{
+  GameState = 
+	{
 	[GAMESTATE_MAINMENU] = title,
 	[GAMESTATE_GAME] = game,
 	[GAMESTATE_PAUSE] = pause,
-}
+	}
   
   -- Stores the current room
   gameState.state = GAMESTATE_NULL
   gameState.room = ROOM_NULL
-  gameState.state = 1
 
   -- Player information
   gameState.player.x = 0
   gameState.player.y = 0
   gameState.player.maxHealth = 20
   gameState.player.weapon = 0
-  
-  -- Which pickups have been obtained
-  gameState.pickups.blaster = false
-  gameState.pickups.rocket = false
-  gameState.pickups.harpoon = false
-  gameState.pickups.aquaPack = false
-  gameState.pickups.health1 = false
-  gameState.pickups.health2 = false
-
-  -- Changes to false after the tutorial text disappears
-  gameState.tutorial = true
-
 end
 
-function ChangeGameState(staet, unload, param)
+function ChangeGameState(staet, unload, param)  --!! staet? !!
 	if (unload == nil) then unload = true end
-	log("Unloading gamestate " .. tostring(staet) .. " unload = " .. tostring(unload) .. "\n")
+	log("In ChangeGameState: Unloading gamestate " .. tostring(staet) .. " unload = " .. tostring(unload) .. "\n")
 	if (gameState.state ~= GAMESTATE_NULL and unload == true) then
 		GameState[gameState.state].unload()
 	end
@@ -57,7 +43,7 @@ function ChangeGameState(staet, unload, param)
 	end
 	
 	if (gameState.state == GAMESTATE_MAINMENU and GameState[gameState.state].loaded == true) then
-		log ('Main Menu gamestate reached' .. tostring(gameState.room) ..' \n')	
+		log ('In ChangeGameState: Main Menu gamestate reached' .. tostring(gameState.room) ..' \n')	
 	end --reset all 
 	game.load(param)
 end

@@ -1,7 +1,7 @@
 anim8 = require 'source.lib.anim8.anim8'
 
-	grid = anim8.newGrid(32, 32, 580, 121)
-fenceObject =		--proposing passing "objects" rather than a set of arguments? 
+grid = anim8.newGrid(32, 32, 580, 121)
+fenceObject =		
 {
 	name = 'wall',
 	colides = true,
